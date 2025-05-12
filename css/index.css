@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('../img/fundo.png'); 
+    background-size: cover; /* Garante que a imagem cubra todo o fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    color: white; /* Define uma cor de texto padrão para melhor contraste com o fundo */
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #1e2a3d, #4d5d6c);
+    padding: 15px 50px;
+    /* Você pode adicionar uma transparência para que o fundo apareça um pouco */
+    /* background: rgba(30, 42, 61, 0.8); */
+}
+
+.logo {
+    width: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 110px;
+}
+
+.nav-links li {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.botao_cadastro_login a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.botao_cadastro_login .cadastro {
+    background: linear-gradient(to right, #ff5e5e, #ff9345);
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+
+.tela_inicio {
+    /* Remova o background daqui, pois agora está no body */
+    padding: 80px 50px;
+    display: flex;
+    flex-direction: column; /* Para alinhar os itens verticalmente */
+    align-items: flex-start; /* Alinhar o conteúdo à esquerda */
+    justify-content: center; /* Centralizar o conteúdo verticalmente (opcional) */
+    min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura da tela */
+    /* Para tornar o fundo um pouco mais escuro para melhor leitura do texto */
+    background-color: rgba(0, 0, 0, 0.3); /* Preto com 30% de opacidade */
+   
+}
+
+.content {
+    max-width: 600px;
+}
+
+.content h1 {
+    font-size: 100px;
+    font-weight: bold;
+    color: #e6e6e6;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.saiba {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 3px;
+    display: inline-block; /* Para que o padding funcione corretamente */
+}
