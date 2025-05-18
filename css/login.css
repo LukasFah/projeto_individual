@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anton", sans-serif;
+
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background:linear-gradient(to right, #16213d, #54595f)
+}
+
+.formulario_login {
+    background-color: #afb4bd;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario_login h2{
+    color: white;
+}
