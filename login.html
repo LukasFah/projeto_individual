@@ -16,23 +16,23 @@
         <h2><i>Login</i></h2>
         <form action="#">
 
-            <label>E-mail</label>
-            <div id="caixa_formulario">
-                <input id="ipt_email" class="input_cadastro_login" placeholder="Digite seu e-mail" type="E-mail"
+            <label>E-mail <span style="color: brown;">*</span></label>
+            <div class="caixa_formulario">
+                <input id="ipt_email" class="input_cadastro_login" placeholder="Digite seu e-mail" type="email"
                     required>
                 <i class='bx  bxs-user'></i>
             </div>
 
-            <label>Senha:</label>
-            <div id="caixa_formulario">
-                <input type="password" id="ipt_senha" class="input_cadastro_login" placeholder="Senha" required>
+            <label>Senha <span style="color: brown;">*</span></label>
+            <div class="caixa_formulario">
+                <input type="password" id="ipt_senha" class="input_cadastro_login" placeholder="Digite sua senha" required>
                 <i class="bx bxs-lock "></i>
             </div>
 
             <button onclick="Login()">Entrar</button>
 
-            <div id="link_cadastro">
-                <label>Não tem conta?<a href="">Cadastrar</a></label>
+            <div class="link_cadastro">
+                <label>Não tem conta?   <a href="">Cadastrar</a></label>
             </div>
 
         </form>
