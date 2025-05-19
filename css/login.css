@@ -17,17 +17,18 @@ body {
     overflow: hidden;
     background: linear-gradient(to right, #16213d, #54595f);
     position: relative;
-    right: 20%;
+     right: 20%; 
 }
 
 .formulario_login {
     background-color: rgba(217, 212, 212, 0.5);
-    width: 20%;
+    width: 30%;
     border: 1px solid #54595f;
     backdrop-filter: blur(10px);
     box-shadow: rgba(238, 238, 238, 0.56) 0px 22px 70px 4px;
     border-radius: 16px;
-    padding: 30px;
+    padding: 45px;
+    z-index: 2;
 }
 
 .formulario_login h2 {
@@ -35,6 +36,15 @@ body {
     font-size: 80px;
     text-align: center;
     margin-bottom: 30px;
+    
+}
+
+.formulario_login span {
+    color: brown;
+}
+
+.formulario_login label {
+    font-size: 27px
 }
 
 .caixa_formulario {
@@ -69,15 +79,15 @@ body {
     color: white;
     border: none;
     width: 100%;
-    font-size: 20px;
+    font-size: 26px;
     margin-bottom: 20px;
     cursor: pointer;
 
 }
 
-.formulario_login button:hover{
+.formulario_login button:hover {
     transition: all 0.5s;
-transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .link_cadastro {
@@ -92,4 +102,21 @@ transform: translateY(-10px);
 
 .link_cadastro a:hover {
     text-decoration: underline;
+}
+
+.img-jogador-login{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: auto;
+    
+}
+
+.img-jogador-login img{
+    position: relative;
+    left: 60%;
+    width: 70%;
+    z-index: 0;
+
 }
