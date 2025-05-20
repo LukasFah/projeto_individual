@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="../public/css/cadastro.css">
+    <title>Basquete</title>
+</head>
+
+<body>
+    <div class="formulario_login">
+
+        <div class="img-jogador-cadastro">
+        <img src="../public/assets/img/jogador_cadastro.png" alt="Logo" class="logo">
+    </div>
+
+        <h2><i>Cadastro</i></h2>
+        <form action="#">
+
+            <label>Nome <span>*</span></label>
+            <div class="caixa_formulario">
+                <input id="ipt_nome" class="input_cadastro_login" placeholder="Digite seu nome" type="text"
+                    required>
+            </div>
+
+            <label>E-mail <span>*</span></label>
+            <div class="caixa_formulario">
+                <input id="ipt_email" class="input_cadastro_login" placeholder="Digite seu e-mail" type="email"
+                    required>
+            </div>
+
+            <label>Senha <span>*</span></label>
+            <div class="caixa_formulario">
+                <input type="password" id="ipt_senha" class="input_cadastro_login" placeholder="Digite sua senha"
+                    required>
+            </div>
+
+            <label>Confirme sua senha <span>*</span></label>
+            <div class="caixa_formulario">
+                <input type="password" id="ipt_senha" class="input_cadastro_login" placeholder="Digite sua senha"
+                    required>
+            </div>
+
+            <button onclick="cadastro()">Entrar</button>
+
+            <div class="link_cadastro">
+                <label>Já tem conta? <a href="../public/login.html">Login</a></label>
+            </div>
+
+        </form>
+    </div>
+
+    
+</body>
+
+</html>
+

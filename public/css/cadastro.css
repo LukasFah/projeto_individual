@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anton", sans-serif;
+
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #16213d, #54595f);
+    position: relative;
+}
+
+.formulario_login {
+    background-color: rgba(217, 212, 212, 0.5);
+    width: 30%;
+    border: 1px solid #54595f;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(238, 238, 238, 0.56) 0px 22px 70px 4px;
+    border-radius: 16px;
+    padding: 40px;
+    z-index: 2;
+}
+
+.formulario_login h2 {
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+
+.formulario_login span {
+    color: brown;
+}
+
+.formulario_login label {
+    font-size: 20px
+}
+
+.caixa_formulario {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.caixa_formulario input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 0 20px;
+}
+
+.caixa_formulario input::placeholder {
+    color: rgba(15, 16, 16, 0.4);
+}
+
+.caixa_formulario i {
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    top: 20%;
+}
+
+.formulario_login button {
+    background: linear-gradient(to right, #ff5e5e, #ff9345);
+    padding: 8px 15px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 26px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+}
+
+.formulario_login button:hover {
+    transition: all 0.5s;
+    transform: translateY(-10px);
+}
+
+.link_cadastro {
+    text-align: center;
+}
+
+.link_cadastro a {
+    color: white;
+    text-decoration: none;
+    padding-left: 6px;
+}
+
+.link_cadastro a:hover {
+    text-decoration: underline;
+}
+
+.img-jogador-cadastro{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: auto;
+    
+}
+
+.img-jogador-cadastro img{
+    position: relative;
+    right: 110%;
+    width: 120%;
+    z-index: 0;
+
+}
