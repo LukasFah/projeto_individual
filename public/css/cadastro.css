@@ -109,13 +109,11 @@ body {
     bottom: 0;
     width: 100%; 
     height: auto;
-    
 }
 
 .img-jogador-cadastro img{
     position: relative;
-    right: 110%;
-    width: 120%;
+    width: 37%;
     z-index: 0;
 
 }

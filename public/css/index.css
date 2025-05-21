@@ -7,11 +7,34 @@
 
 }
 
+.section{
+    height: 100vh;
+}
 
+#historia{
+    background-color: #ff5e5e;
+    
+}
 
-body {
+#nba{
+    background-color: brown;
+}
+
+#nbb{
+    background-color: darkgreen;
+}
+
+#beneficios{
+    background-color: #ff9345;
+}
+
+#entretenimento{
+    background-color: darkcyan;
+}
+
+.inicio {
     font-family: "Anton", sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
     background-image: url('../assets/img/fundo.png');
     background-size: cover;
@@ -21,7 +44,7 @@ body {
 }
 
 
-.itens_topo_principal {
+.nav_principal {
     font-family: "Poppins", sans-serif;
     display: flex;
     align-items: center;
