@@ -77,12 +77,9 @@
             nomeVar == "" ||
             emailVar == "" ||
             senhaVar == "" ||
-            confirmacaoSenhaVar == "" ||
-            codigoVar == ""
+            confirmacaoSenhaVar == "" 
         ) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+            alert('Digite os campos corretamente!')
 
             // finalizarAguardar();
             return false;
