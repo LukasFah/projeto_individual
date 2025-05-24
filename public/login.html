@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./js/sessao.js"></script>
-    <link rel="stylesheet" href="../public/css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <title>Basquete</title>
 </head>
 
@@ -14,11 +16,10 @@
     <div class="formulario_login">
 
         <h2><i>Login</i></h2>
-        <form action="#">
 
             <label>E-mail <span>*</span></label>
             <div class="caixa_formulario">
-                <input id="ipt_email" class="input_cadastro_login" placeholder="Digite seu e-mail" type="email"
+                <input id="ipt_email" class="input_cadastro_login" placeholder="Digite seu e-mail" type="text"
                     required>
                 <i class='bx  bxs-user'></i>
             </div>
@@ -33,14 +34,13 @@
             <button onclick="Login()">Entrar</button>
 
             <div class="link_cadastro">
-                <label>Não tem conta? <a href="../public/cadastro.html">Cadastrar</a></label>
+                <label>Não tem conta? <a href="cadastro.html">Cadastrar</a></label>
             </div>
 
-        </form>
     </div>
 
     <div class="img-jogador-login">
-        <img src="../public/assets/img/jogadores-login.png" alt="Logo" class="logo">
+        <img src="./assets/img/jogadores-login.png" alt="Logo" class="logo">
     </div>
 </body>
 
@@ -48,21 +48,18 @@
 
 <script>
 
-    function entrar() {
-        // aguardar();
+    function Login() {
 
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // finalizarAguardar();
+            
+            alert('Digite os campos corretamente!')
+            
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+       
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -88,11 +85,11 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                   
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000); 
 
                 });
 
@@ -102,7 +99,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
+                    
                 });
             }
 
@@ -113,8 +110,6 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+  
 
 </script>
