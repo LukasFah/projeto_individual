@@ -120,7 +120,7 @@ body{
 
 }
 
-/* -------------------------- FIM - INICIO */
+/*  FIM - INICIO --------------------------*/
 
 
 
@@ -170,12 +170,34 @@ body{
     width: 110%;
 }
 
-/* -------------------------- FIM - HISTORIA */
+/* FIM - HISTORIA --------------------------*/
 
 
+
+/* --------------------------  NBA */
 #nba{
     background-color: #16213d;
 }
+
+.text-nba{
+    width: 50%;
+    background-color: #afb4bd;
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: 5%;
+}
+
+.text-nba p{
+    margin-bottom: 3%
+}
+
+.text-nba h1{
+    text-align: center;
+    font-size: 40px;
+     font-family: "Anton", sans-serif;
+}
+
+/* FIM - NBA --------------------------*/
 
 #nbb{
     background-color: #16213d;
