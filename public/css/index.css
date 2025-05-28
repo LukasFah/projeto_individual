@@ -4,24 +4,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-
+body{
+    overflow-x: hidden;
+}
 .section{
     height: 100vh;
 }
-
+.inicio {
+    font-family: "Anton", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    background-image: url('../assets/img/fundoIndex.png');
+    background-size: cover;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    
+}
 #historia{
-    background-color: #ff5e5e;
+    background-image: url('../assets/img/fundoHistoria.png');
+    background-size: cover;
+    background-position-y: 100%;
     
 }
 
 #nba{
-    background-color: brown;
+    background-color: #16213d;
 }
 
 #nbb{
-    background-color: darkgreen;
+    background-color: #16213d;
 }
 
 #beneficios{
@@ -32,15 +45,24 @@
     background-color: darkcyan;
 }
 
-.inicio {
-    font-family: "Anton", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    background-image: url('../assets/img/fundo.png');
-    background-size: cover;
-    background-position-y: 30%;
-    background-repeat: no-repeat;
-    color: white;
+
+
+.img-jogador-login{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: auto;
+    z-index: 0;
+    
+}
+
+.img-jogador-login img{
+    position: relative;
+    left: 55%;
+    width: 44%;
+    z-index: 0;
+
 }
 
 
@@ -51,6 +73,9 @@
     justify-content: space-between;
     background: linear-gradient(to right, #1e2a3d, #4d5d6c);
     padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
 
 .logo {
@@ -104,20 +129,20 @@
 
 .content {
     max-width: 700px;
-    margin-left: 15%;
+    margin-left: 6%;
+    z-index: 1;
 }
 
 .content h1 {
-    font-size: 136px;
+    font-size: 180px;
     font-weight: bold;
     color: #e6e6e6;
-    margin-bottom: 20px;
 }
 
 .content p {
-    font-size: 20px;
+    font-size: 25px;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom:15%;
 }
 
 .saiba {
