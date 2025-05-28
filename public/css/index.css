@@ -11,6 +11,7 @@ body{
 .section{
     height: 100vh;
 }
+/* -------------------------- INICIO */
 .inicio {
     font-family: "Anton", sans-serif;
     font-weight: 500;
@@ -20,51 +21,7 @@ body{
     background-position-y: 100%;
     background-repeat: no-repeat;
     color: white;
-    
 }
-#historia{
-    background-image: url('../assets/img/fundoHistoria.png');
-    background-size: cover;
-    background-position-y: 100%;
-    
-}
-
-#nba{
-    background-color: #16213d;
-}
-
-#nbb{
-    background-color: #16213d;
-}
-
-#beneficios{
-    background-color: #ff9345;
-}
-
-#entretenimento{
-    background-color: darkcyan;
-}
-
-
-
-.img-jogador-login{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%; 
-    height: auto;
-    z-index: 0;
-    
-}
-
-.img-jogador-login img{
-    position: relative;
-    left: 55%;
-    width: 44%;
-    z-index: 0;
-
-}
-
 
 .nav_principal {
     font-family: "Poppins", sans-serif;
@@ -145,12 +102,97 @@ body{
     margin-bottom:15%;
 }
 
-.saiba {
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 3px;
-    display: inline-block;
+.img-jogador-index{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 96%;
+    z-index: 0;
+    margin-top: 5% ;
 }
+
+.img-jogador-index img{
+    position: relative;
+    left: 52%;
+    width: 50%;
+    z-index: 0;
+
+}
+
+/* -------------------------- FIM - INICIO */
+
+
+
+
+
+
+/* --------------------------  HISTORIA */
+
+
+#historia{
+    background-image: url('../assets/img/fundoHistoria.png');
+    background-size: cover;
+    background-position-y: 100%;  
+}
+
+.text{
+    width: 40%;
+    background-color: #b53f2f;
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: 5%;
+}
+
+.text p{
+    margin-bottom: 3%
+}
+
+.text h1{
+    text-align: center;
+    font-size: 40px;
+     font-family: "Anton", sans-serif;
+}
+
+.content_historia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+}
+
+.img-jogador-historia img{
+    position: relative;
+    right: 15%;
+    width: 110%;
+}
+
+/* -------------------------- FIM - HISTORIA */
+
+
+#nba{
+    background-color: #16213d;
+}
+
+#nbb{
+    background-color: #16213d;
+}
+
+#beneficios{
+    background-color: #ff9345;
+}
+
+#entretenimento{
+    background-color: darkcyan;
+}
+
+
+
+
+
+
+
+
