@@ -89,7 +89,6 @@ button {
     height: 50vh;
     width: 50%;
     flex-direction: column;
-    border: none;
 } 
 
 #pontuacaoEJogo h2{
@@ -121,5 +120,28 @@ button {
     transform: translateY(-10px);
 }
 
+#pontuacao{
+  border: none;
+}
 
+#pontuacaoDuranteJogo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#pontuacaoFinalJogo{
+    width: 100%;
+     display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+#jogo{
+    border: none;
+}
+
+.logo{
+    width: 90px;
+}
