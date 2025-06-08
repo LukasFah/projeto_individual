@@ -88,7 +88,6 @@ h1 {
 }
 
 #link_dashboard {
-    /* background-color: #ffbd59; */
     background-color: #ffbd59;
     border-style: solid;
     border-width: 0px 0px 0px 7px;
@@ -96,7 +95,6 @@ h1 {
 }
 
 .div_link:hover {
-    /* background-color: #ffbd59; */
     background-color: #ffbd59;
     border-style: solid;
     border-width: 0px 0px 0px 7px;

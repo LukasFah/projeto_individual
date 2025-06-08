@@ -46,7 +46,7 @@
 
                 <div id="infoAlternativas" class="padding-8">
                     <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                </div> 
+                </div>
 
                 <div id="opcoes" class="flex-colunar padding-8">
                     <span>
@@ -203,7 +203,7 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-         btnConcluir.disabled = true
+        btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
 
@@ -331,11 +331,11 @@
         let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
         document.getElementById('pontuacao').style.display = "flex"
-         document.getElementById('opcoes').style.display = "none"
+        document.getElementById('opcoes').style.display = "none"
         document.getElementById('infoAlternativas').style.display = "none"
         document.getElementById('perguntaDaQuestaoAtual').style.display = "none"
         document.getElementById('infoQuestao').style.display = "none"
-      
+
         if (porcentagemFinalDeAcertos <= 0.3) {
             textoParaMensagemFinal = "Parece que você não estudou..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
@@ -359,12 +359,43 @@
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
-         btnConcluir.disabled = false
+        btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
 
     }
 
     function finalizar() {
+        sessionStorage.setItem("acertos", pontuacaoFinal);
+        sessionStorage.setItem("erros", erradas);
+        quiz();
         window.location = "./dashboard/dashboard-basquete.html";
     }
+
+    function quiz() {
+        var corretaVar = pontuacaoFinal;
+        var erradaVar = erradas;
+        var fkUsuarioVar = sessionStorage.getItem("ID_USUARIO");
+        var fkQuizVar = sessionStorage.getItem("ID_QUIZ");
+
+
+        fetch("/dashboard/historia", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                corretaServer: corretaVar,
+                erradoServer: erradaVar,
+                fkUsuarioServer: fkUsuarioVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (error) {
+                console.log("Erro ao enviar os dados: ", error);
+                alert("Erro ao enviar os dados.");
+            });
+    }
+
 </script>
