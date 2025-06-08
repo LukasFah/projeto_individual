@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard-basquete.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<title>Dashboard SoyTrack</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+</head>
+
+<body>
+    <section class="dash">
+        <div id="navbar_lateral">
+            <div id="icone_navbar">
+                <img id="icone_soytrack" src="" alt="icon-login">
+            </div>
+            <div id="div_nav_links">
+                <div class="div_link" id="link_dashboard"onclick="window.location.href='dashboard-basquete.html'">Página Principal</div>
+                <div class="div_link" id="link_silos" onclick="window.location.href='silos.html'"></div>
+                <div class="div_link" id="link_solicitacoes" onclick="window.location.href='solicitacoes.html'"></div>
+                <div class="div_link" id="link_relatorio" onclick="window.location.href='relatorios.html'"></div>
+            </div>
+            <div id="div_sair" onclick="window.location.href='../indexLogado.html'">SAIR</div>
+        </div>
+
+        <div id="centraliza_direta">
+        <div class="titulo-esquerda">
+            <div id="titulo">
+                <h2>Dashboard Quiz</h2>
+            </div>
+            <div id="resto">
+                <div id="esquerda">
+                    <div id="KPIs">
+                        <div class="kpi">
+                            <div class="titulo-kpi">
+                                <h3>Média de acertos</h3>
+                                
+                            </div>
+                            <div class="valor-kpi">
+                                <h1 id="prox_txt"></h1>
+                            </div>
+                        </div>
+                        <div class="kpi">
+                            <div class="titulo-kpi">
+                                <h3>Categoria com maior desempenho</h3>
+                            </div>
+                            <div class="valor-kpi">
+                                <h1 id="disponibilidade_txt"></h1>
+                            </div>
+                        </div>
+                        <div class="kpi">
+                            <div class="titulo-kpi">
+                                <h3>Total de quizzes realizados</h3>
+                            </div>
+                            <div class="valor-kpi">
+                                <h1 id="armazenagem_txt"></h1>
+                            </div>
+                        </div>
+                        <!-- <div class="kpi">
+                            <div class="titulo-kpi-icone">
+                                <h3>Total de Alertas Graves Emitidos no Último Mês</h3>
+
+                            </div>
+                            <div class="valor-kpi">
+                                <h1 id="alertas_txt"></h1>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div id="graficos">
+                        <div class="graf">
+                            <div id="graf1">
+                                <h5>Grafico</h5>
+                                <select id="silo" onchange="VARsilos()" class="seleção"></select>
+                            </div>
+                            <canvas id="graficoLinha" style="position: relative; width: 100%; height: 95%;"></canvas>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+            
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- AS DIVS DOS POPUP COMEÇA AQUI -->
+
+    
+
+    <div id="modal2" popover="auto" class="style_modal">
+        <div id="alinha-h2-button">
+            <h2>Legenda dos Alertas</h2>
+            <button class="botaofechar" popovertarget="modal2">x</button>
+        </div>
+        <div class="text-modal">
+            <p class="desc"><span id="grave">Grave-</span> Alertas graves representam silos próximos de 100% de ocupação. Atenção máxima recomendada.</p>
+            <p class="desc"><span id="moderado">Moderado-</span> Alertas moderados representam silos que apresentam nível elevado de ocupação e que podem atingir a capacidade total em breve.</p>
+            <p class="desc"><span id="leve">Leve-</span> Alertas leves representam silos com ocupação considerável, porém em estado controlado.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="dash.js"></script>

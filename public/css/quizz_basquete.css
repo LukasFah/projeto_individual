@@ -45,6 +45,7 @@ button {
     width: 80%;
     background: linear-gradient(to right, #16213d, #54595f);
     text-align: center;
+    border-radius: 15px;
 }
 
 .border-primary {
@@ -144,4 +145,30 @@ button {
 
 .logo{
     width: 90px;
+}
+
+.botao_cadastro_login a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.botao_cadastro_login button {
+    background: linear-gradient(to right, #ff5e5e, #ff9345);
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 10px;
+}
+
+.botao_cadastro_login button:hover {
+    transition: all 0.5s;
+    transform: translateY(-4px);
+}
+.botao_cadastro_login {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 }
