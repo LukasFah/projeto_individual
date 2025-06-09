@@ -82,10 +82,11 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                   
+                    sessionStorage.setItem("EMAIL_USUARIO", json.email);
+                sessionStorage.setItem("NOME_USUARIO", json.nome);
+                sessionStorage.setItem("ID_USUARIO", json.idUsuario);
+                   console.log("ID salvo:", sessionStorage.getItem("ID_USUARIO"));
+
 
                     setTimeout(function () {
                         window.location = "indexLogado.html";
