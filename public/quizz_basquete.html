@@ -71,7 +71,6 @@
                     <button onclick="submeter()" id="btnSubmeter">Responder</button>
                     <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                     <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
-                    <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
                 </div>
 
             </div>
@@ -183,9 +182,9 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
+    localStorage.setItem("acesso_dash", 0);
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
-    console.log("ID_USUARIO:", sessionStorage.getItem("ID_USUARIO"));
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
@@ -366,11 +365,13 @@
         btnSubmeter.disabled = true
         btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
-
+        
     }
 
     function finalizar() {
         window.location = "./dashboard/dashboard-basquete.html";
+        localStorage.setItem("acesso_dash", 1);
+
     }
 
     function historia() {

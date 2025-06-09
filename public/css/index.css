@@ -78,6 +78,8 @@ justify-content: space-evenly;}
     padding: 15px;  
     border-radius: 5px;
 }
+
+
 .btn-quiz:hover{
     background-color: #1e2a3d;
     transition: 1s;

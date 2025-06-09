@@ -14,7 +14,7 @@
   <title>Basquete</title>
 </head>
 
-<body onload="onloadEsconder()">
+<body>
   <section id="inicio" class="inicio">
     <header>
       <nav class="nav_principal_logado">
@@ -26,7 +26,6 @@
           <li><a href="#beneficios">Benefícios</a></li>
           <li><a href="#entretenimento">Entretenimento</a></li>
           <li><a class="btn-quiz" href="./quizz_basquete.html">Quiz</a></li>
-          <li><a class="btn-dash" href="./dashboard/dashboard-basquete.html" id="dash" >Dashboard</a></li>
         </ul>
         
       </nav>
@@ -169,16 +168,3 @@ Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas tamb
 </body>
 
 </html>
-
-<script>
-  function onloadEsconder() {
-      let dashAcesso = localStorage.getItem("acesso_dash");
-
-    document.getElementById("dash").style.display= "none";
-    
-
-    if (dashAcesso == "1") {
-          document.getElementById("dash").style.display= "flex";
-    }
-  }
-</script>
