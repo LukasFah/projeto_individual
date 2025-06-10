@@ -13,6 +13,39 @@ function historia(correta, errado, fkUsuario, fkQuiz) {
     return database.executar(instrucaoSql);
 }
 
+
+function obterDados(fkUsuario) {
+    var instrucaoSql = `
+       SELECT q.nome AS nomeQuiz,
+	SUM(r.acertos) AS totalAcertos,
+    SUM(r.erros) AS totalErros
+FROM resultado r JOIN quiz q ON r.fkQuiz = q.idQuiz
+WHERE r.fkUsuario = ${fkUsuario}
+GROUP BY q.nome;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+function kpis(fkUsuario) {
+
+    var instrucaoSql = `SELECT 
+         fkQuiz,
+        SUM(acertos) AS totalAcertos,
+        SUM(erros) AS totalErros,
+        COUNT(*) AS totalQuizzes
+        FROM resultado
+        WHERE fkUsuario = ${fkUsuario}
+        GROUP BY fkQuiz;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    historia
+    historia,
+    obterDados,
+    kpis
 };

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basquete</title>
+    <link rel="stylesheet" href="./css/quizz_basquete.css">
+</head>
+
+
+<body onload="onloadEsconder()">
+    <div class="conteint-centraliza">
+        <div id="pontuacaoEJogo">
+            <a href="./indexLogado.html"><img src="./assets/img/logo (1).png" alt="Logo" class="logo"></a>
+            <h2 id="historia"><i>HISTÓRIA</i></h2>
+            <button class="button" id="btnIniciarQuiz" onclick="iniciarQuiz() ">INICIAR QUIZ</button>
+
+            <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                    <span class="width-fit-content"><span style="color: darkgreen;">Quantidade de acertos:</span> <span
+                            id="spanCertas"></span></span>
+                    <span class="width-fit-content"><span style="color: brown;">Quantidade de erros:</span> <span
+                            id="spanErradas"></span></span>
+                </div>
+                <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                    <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                        <span id="spanPontuacaoFinal">***</span>
+                    </span>
+                    <span id="msgFinal" class="width-fit-content">***</span>
+                </div>
+            </div>
+
+
+
+            <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                <div id="infoQuestao" class="padding-8">
+                    <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                        questões.</span>
+                </div>
+
+                <div id="perguntaDaQuestaoAtual" class="padding-8">
+                    <span id="spanQuestaoExibida" class="text-bold"></span>
+                </div>
+
+                <div id="infoAlternativas" class="padding-8">
+                    <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                </div>
+
+                <div id="opcoes" class="flex-colunar padding-8">
+                    <span>
+                        <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    </span>
+                    <span>
+                        <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    </span>
+                </div>
+
+                <div id="botoes" class="flex-colunar padding-8 botao_cadastro_login">
+                    <button onclick="submeter()" id="btnSubmeter">Responder</button>
+                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                    <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const listaDeQuestoes = [
+
+        {
+            pergunta: "Qual ano foi inventado o basquete?",
+            alternativaA: "1901",
+            alternativaB: "1889",
+            alternativaC: "1891",
+            alternativaD: "1799",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Quem inventou o basquete?",
+            alternativaA: "James Smith",
+            alternativaB: "Nataly Goldberg",
+            alternativaC: "Oscar Schmidt",
+            alternativaD: "James Naismith",
+            alternativaCorreta: "alternativaD"
+        } //,
+
+        // {
+        //     pergunta: "Quantas regras básicas foram criadas no ínicio da criação do basquete?",
+        //     alternativaA: "10",
+        //     alternativaB: "12",
+        //     alternativaC: "8",
+        //     alternativaD: "13",
+        //     alternativaCorreta: "alternativaD"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaA"
+        // },
+
+        // {
+        //     pergunta: "?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaA"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaB"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaD"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaB"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaC"
+        // },
+
+        // {
+        //     pergunta: "O que o James teve que usar no inicio da criação do basquete, para simular uma cesta de basquete atual?",
+        //     alternativaA: "Um cesto de pêssego",
+        //     alternativaB: "Um cesto de roupa",
+        //     alternativaC: "Um cesto de maças",
+        //     alternativaD: "Um balde",
+        //     alternativaCorreta: "alternativaC"
+        // }
+
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    localStorage.setItem("acesso_dash", 0);
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        // document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.getElementById('historia').style.display = "none"
+
+        sessionStorage.setItem("ID_QUIZ", 2);
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('opcoes').style.display = "none"
+        document.getElementById('infoAlternativas').style.display = "none"
+        document.getElementById('perguntaDaQuestaoAtual').style.display = "none"
+        document.getElementById('infoQuestao').style.display = "none"
+
+        sessionStorage.setItem("acertos", pontuacaoFinal);
+        sessionStorage.setItem("erros", erradas);
+        historia();
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        btnConcluir.disabled = false
+        btnTentarNovamente.disabled = false
+        
+    }
+
+    function finalizar() {
+        window.location = "./dashboard/dashboard-basquete.html";
+        localStorage.setItem("acesso_dash", 1);
+
+    }
+
+    function historia() {
+        var corretaVar = pontuacaoFinal;
+        var erradaVar = erradas;
+        var fkUsuarioVar = sessionStorage.getItem("ID_USUARIO");
+        var fkQuizVar = sessionStorage.getItem("ID_QUIZ");
+
+        if (!fkUsuarioVar) {
+            alert("Dados do usuário ou quiz não encontrados.");
+            return;
+        }
+        console.log("Dados a serem enviados:");
+        console.log("fkQuiz:", fkQuizVar);
+        console.log("Acertos:", corretaVar);
+        console.log("Erros:", erradaVar);
+        console.log("ID do usuário:", fkUsuarioVar);
+
+        fetch("/dashboard/historia", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                corretaServer: corretaVar,
+                erradoServer: erradaVar,
+                fkUsuarioServer: fkUsuarioVar,
+                fkQuizServer: fkQuizVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (error) {
+                console.log("Erro ao enviar os dados: ", error);
+                alert("Erro ao enviar os dados.");
+            });
+    }
+
+</script>

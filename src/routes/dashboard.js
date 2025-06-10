@@ -8,7 +8,13 @@ router.post("/historia", function (req, res) {
     dashboardController.historia(req, res);
 })
 
+router.get("/obterDados/:fkUsuario", function (req, res) {
+   dashboardController.obterDados(req, res);
+});
 
+router.get("/kpis/:fkUsuario", function (req, res) {
+   dashboardController.kpis(req, res);
+});
 
 
 

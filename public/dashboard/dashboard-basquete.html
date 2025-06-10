@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <title>Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -17,70 +19,66 @@
             <div id="icone_navbar">
                 <img id="icone" src="../assets/img/logo (1).png" alt="icon-login">
             </div>
-            <h2 class="name" >Olá, <b id="usuario">Nome do usuário</b> !!</h3>
+            <h2 class="name">Olá, <b id="usuario">Nome do usuário</b> !!</h3>
 
-            <div id="div_nav_links">
-                <div class="div_link" id="link_dashboard" onclick="window.location.href='dashboard-basquete.html'">
-                    Página Principal</div>
-                <div class="div_link" id="link_silos" onclick="window.location.href='silos.html'"></div>
-                <div class="div_link" id="link_solicitacoes" onclick="window.location.href='solicitacoes.html'"></div>
-                <div class="div_link" id="link_relatorio" onclick="window.location.href='relatorios.html'"></div>
-            </div>
-            <div id="div_sair" onclick="window.location.href='../indexLogado.html' ">SAIR</div>
+                <div id="div_nav_links">
+                    <div class="div_link" id="link_dashboard" onclick="window.location.href='dashboard-basquete.html'">
+                        Página Principal</div>
+                    <div class="div_link" id="link_quiz" onclick="window.location.href='../quizzes_basquete.html'">
+                        Quiz 
+                    </div>
+                </div>
+                <div id="div_sair" onclick="window.location.href='../indexLogado.html' ">SAIR</div>
         </div>
 
         <div id="centraliza_direta">
-            <div class="titulo-esquerda">
-                <div id="titulo">
-                    <h2>Dashboard Quiz</h2>
-                </div>
-                <div id="resto">
-                    <div id="esquerda">
-                        <div id="KPIs">
-                            <div class="kpi">
-                                <div class="titulo-kpi">
-                                    <h3>Média de acertos</h3>
 
-                                </div>
-                                <div class="valor-kpi">
-                                    <h1 id="prox_txt"></h1>
-                                </div>
-                            </div>
-                            <div class="kpi">
-                                <div class="titulo-kpi">
-                                    <h3>Categoria com maior desempenho</h3>
-                                </div>
-                                <div class="valor-kpi">
-                                    <h1 id="disponibilidade_txt"></h1>
-                                </div>
-                            </div>
-                            <div class="kpi">
-                                <div class="titulo-kpi">
-                                    <h3>Total de quizzes realizados</h3>
-                                </div>
-                                <div class="valor-kpi">
-                                    <h1 id="armazenagem_txt"></h1>
-                                </div>
-                            </div>
-                            
+            <div id="titulo">
+                <h2>Dashboard Quiz</h2>
+            </div>
+            <div id="resto">
+
+                <div id="KPIs">
+                    <div class="kpi">
+                        <div class="titulo-kpi">
+                            <h3>Média de acertos</h3>
+
                         </div>
-                        <div id="graficos">
-                            <div class="graf">
-                                <div id="graf1">
-                                    <h5>Grafico</h5>
-                                    <select id="silo" onchange="VARsilos()" class="seleção"></select>
-                                </div>
-                                <canvas id="graficoLinha"
-                                    style="position: relative; width: 100%; height: 95%;"></canvas>
-                            </div>
-
+                        <div class="valor-kpi">
+                            <h1 id="media"></h1>
+                        </div>
+                    </div>
+                    <div class="kpi">
+                        <div class="titulo-kpi">
+                            <h3>Categoria com maior desempenho</h3>
+                        </div>
+                        <div class="valor-kpi">
+                            <h1 id="desempenho"></h1>
+                        </div>
+                    </div>
+                    <div class="kpi">
+                        <div class="titulo-kpi">
+                            <h3>Total de quizzes realizados</h3>
+                        </div>
+                        <div class="valor-kpi">
+                            <h1 id="quiz"></h1>
                         </div>
                     </div>
 
-
+                </div>
+                <div id="graficos">
+                    <div class="graf">
+                        <canvas id="barra" style="position: relative; width:60%; height:90% "></canvas>
+                        <canvas id="pizza" style="position: relative; width:35%; height:90% "></canvas>
+                    </div>
 
                 </div>
+
+
+
+
             </div>
+
 
         </div>
     </section>
@@ -90,6 +88,194 @@
 </html>
 
 <script>
-        usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var fkUsuario = sessionStorage.ID_USUARIO;
 
+    function obterDados() {
+
+        fetch(`/dashboard/obterDados/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    resultado.reverse();
+
+                    plotarGrafico(resultado);
+                    plotarPizza(resultado);
+
+
+                    let totalAcertos = 0;
+                    let totalQuestoes = 0;
+
+                    for (let i = 0; i < resultado.length; i++) {
+                        const acertos = Number(resultado[i].totalAcertos);
+                        const erros = Number(resultado[i].totalErros);
+                        const total = acertos + erros;
+
+                        if (total > 0) {
+                            totalAcertos += acertos;
+                            totalQuestoes += total;
+                        }
+                    }
+
+                    let mediaGeral = 0;
+                    if (totalQuestoes > 0) {
+                        mediaGeral = (totalAcertos / totalQuestoes) * 100;
+                    }
+                    media.innerHTML = `${mediaGeral.toFixed(1)}%`;
+                });
+
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resultado) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        let acertos = [];
+        let erros = [];
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+        for (let i = 0; i < resultado.length; i++) {
+            labels.push(resultado[i].nomeQuiz);
+            acertos.push(resultado[i].totalAcertos);
+            erros.push(resultado[i].totalErros);
+        }
+
+        const ctx = document.getElementById('barra').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Acertos',
+                        data: acertos,
+                        borderColor: '#332b19',
+                        backgroundColor: '#FBC64F',
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Erros',
+                        data: erros,
+                        borderColor: '#332b19',
+                        backgroundColor: '#ED2F2F',
+                        borderWidth: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Acertos e erros por Categoria'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Quantidade'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Categoria do Quiz'
+                        }
+                    }
+                }
+            }
+        });
+
+
+
+    }
+
+
+    function plotarPizza(resultado) {
+        console.log('iniciando plotagem do gráfico de pizza...');
+
+        const labels = [];
+        const medias = [];
+
+        for (let i = 0; i < resultado.length; i++) {
+            const acertos = Number(resultado[i].totalAcertos);
+            const erros = Number(resultado[i].totalErros);
+            const total = acertos + erros;
+
+            if (total > 0) {
+                const mediaQuiz = (acertos / total) * 100;
+                labels.push(resultado[i].nomeQuiz);
+                medias.push(mediaQuiz.toFixed(1));
+            }
+        }
+
+        const ctxPizza = document.getElementById('pizza').getContext('2d');
+        new Chart(ctxPizza, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Média de Acertos (%)',
+                    data: medias,
+                    backgroundColor: [
+                        '#FBC64F',
+                        '#ED2F2F',
+                        '#4CAF50',
+                        '#2196F3',
+                        '#9C27B0',
+                        '#FF9800'
+                    ],
+                    borderColor: '#332b19',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Média de acertos por quiz (%)'
+                    }
+                }
+            }
+        });
+    }
+
+
+    function kpis() {
+        fetch(`/dashboard/kpis/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    resultado.reverse();
+
+                    // media.innerHTML = ` ${resultado[0].totalAcertos}`
+                    desempenho.innerHTML = ` ${resultado[0].totalErros}`
+                    quiz.innerHTML = ` ${resultado[0].totalQuizzes}`
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+
+
+    window.onload = () => { obterDados(), kpis() };
 </script>
