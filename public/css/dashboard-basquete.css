@@ -93,20 +93,6 @@ h1 {
     border-color: transparent;
 }
 
-#link_dashboard {
-    background-color: #ffbd59;
-    border-style: solid;
-    border-width: 0px 0px 0px 7px;
-    border-color: white;
-}
-
-#link_quiz {
-    background-color: #ffbd59;
-    border-style: solid;
-    border-width: 0px 0px 0px 7px;
-    border-color: white;
-}
-
 .div_link:hover {
     background-color: #ffbd59;
     border-style: solid;

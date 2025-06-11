@@ -26,9 +26,11 @@
           <li><a href="#beneficios">Benefícios</a></li>
           <li><a href="#entretenimento">Entretenimento</a></li>
           <li><a class="btn-quiz" href="./quizzes_basquete.html">Quiz</a></li>
-          <li><a class="btn-dash" href="./dashboard/dashboard-basquete.html" id="dash" >Dashboard</a></li>
+          <li><a class="btn-dash" href="./dashboard/dashboard-basquete.html" id="dash">Dashboard</a></li>
+          <li><a class="btn-dash" href="./index.html">SAIR</a></li>
+
         </ul>
-        
+
       </nav>
     </header>
 
@@ -90,7 +92,7 @@
           (Basketball Association of America). Em 1949, após uma fusão com outra liga, passou a se chamar NBA. Desde
           então, se tornou a principal liga de basquete do mundo, famosa pelo alto nível técnico, show dentro e fora das
           quadras e alcance global.</P>
-        <P><strong>Principais times:</strong><br>
+        <P><strong>Principais times</strong><br>
 
           Ao longo da história, alguns times marcaram época, como o Los Angeles Lakers, Boston Celtics, Chicago Bulls e
           Golden State Warriors. Eles acumulam títulos, rivalidades históricas e torcidas apaixonadas espalhadas pelo
@@ -120,7 +122,7 @@
           O NBB (Novo Basquete Brasil) foi criado em 2008 pela Liga Nacional de Basquete (LNB), com o apoio da
           Confederação Brasileira. Surgiu para profissionalizar e valorizar o basquete no país, trazendo uma nova
           estrutura para o campeonato nacional e mais visibilidade para o esporte.</P>
-        <P><strong>Principais times:</strong><br>
+        <P><strong>Principais times</strong><br>
 
           Ao longo dos anos, equipes como o Flamengo, Franca, Bauru, Paulistano e Minas se destacaram, conquistando
           títulos e revelando talentos. A rivalidade e o equilíbrio entre os clubes tornam o campeonato ainda mais
@@ -145,12 +147,19 @@
         <h1><i>BENEFÍCIOS</i></h1>
         <P><strong>Por que jogar basquete faz tão bem?</strong><br>
 
-          O basquete é mais do que um jogo — é um treino completo para o corpo e a mente. Cada jogada exige agilidade, equilíbrio, força e resistência. Enquanto você corre, salta, dribla e arremessa, está melhorando o condicionamento físico, queimando calorias e fortalecendo músculos sem nem perceber. E o melhor: tudo isso se divertindo!</P>
+          O basquete é mais do que um jogo — é um treino completo para o corpo e a mente. Cada jogada exige agilidade,
+          equilíbrio, força e resistência. Enquanto você corre, salta, dribla e arremessa, está melhorando o
+          condicionamento físico, queimando calorias e fortalecendo músculos sem nem perceber. E o melhor: tudo isso se
+          divertindo!</P>
         <P>
-          Mas os benefícios não param por aí. O basquete desenvolve o raciocínio rápido, a tomada de decisões sob pressão e a comunicação em grupo. É um esporte que exige atenção total ao presente — um verdadeiro exercício de foco. Além disso, ele ensina valores como disciplina, cooperação e resiliência. Aprender a perder, saber ganhar e confiar nos colegas de time também fazem parte do jogo.
-Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas também sobre evoluir em cada lance. Quer saúde, energia e boas histórias pra contar? Então o basquete pode ser o seu lugar.
+          Mas os benefícios não param por aí. O basquete desenvolve o raciocínio rápido, a tomada de decisões sob
+          pressão e a comunicação em grupo. É um esporte que exige atenção total ao presente — um verdadeiro exercício
+          de foco. Além disso, ele ensina valores como disciplina, cooperação e resiliência. Aprender a perder, saber
+          ganhar e confiar nos colegas de time também fazem parte do jogo.
+          Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas também sobre evoluir em cada lance.
+          Quer saúde, energia e boas histórias pra contar? Então o basquete pode ser o seu lugar.
         </P>
-      
+
       </div>
       <div class="img-jogador-nba">
         <img src="./assets/img/design-beneficios.png" alt="" class="">
@@ -172,13 +181,13 @@ Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas tamb
 
 <script>
   function onloadEsconder() {
-      let dashAcesso = localStorage.getItem("acesso_dash");
+    let dashAcesso = localStorage.getItem("acesso_dash");
 
-    document.getElementById("dash").style.display= "none";
-    
+    document.getElementById("dash").style.display = "none";
+
 
     if (dashAcesso == "1") {
-          document.getElementById("dash").style.display= "flex";
+      document.getElementById("dash").style.display = "flex";
     }
   }
 </script>
