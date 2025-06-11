@@ -146,12 +146,19 @@
         <h1><i>BENEFÍCIOS</i></h1>
         <P><strong>Por que jogar basquete faz tão bem?</strong><br>
 
-          O basquete é mais do que um jogo — é um treino completo para o corpo e a mente. Cada jogada exige agilidade, equilíbrio, força e resistência. Enquanto você corre, salta, dribla e arremessa, está melhorando o condicionamento físico, queimando calorias e fortalecendo músculos sem nem perceber. E o melhor: tudo isso se divertindo!</P>
+          O basquete é mais do que um jogo — é um treino completo para o corpo e a mente. Cada jogada exige agilidade,
+          equilíbrio, força e resistência. Enquanto você corre, salta, dribla e arremessa, está melhorando o
+          condicionamento físico, queimando calorias e fortalecendo músculos sem nem perceber. E o melhor: tudo isso se
+          divertindo!</P>
         <P>
-          Mas os benefícios não param por aí. O basquete desenvolve o raciocínio rápido, a tomada de decisões sob pressão e a comunicação em grupo. É um esporte que exige atenção total ao presente — um verdadeiro exercício de foco. Além disso, ele ensina valores como disciplina, cooperação e resiliência. Aprender a perder, saber ganhar e confiar nos colegas de time também fazem parte do jogo.
-Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas também sobre evoluir em cada lance. Quer saúde, energia e boas histórias pra contar? Então o basquete pode ser o seu lugar.
+          Mas os benefícios não param por aí. O basquete desenvolve o raciocínio rápido, a tomada de decisões sob
+          pressão e a comunicação em grupo. É um esporte que exige atenção total ao presente — um verdadeiro exercício
+          de foco. Além disso, ele ensina valores como disciplina, cooperação e resiliência. Aprender a perder, saber
+          ganhar e confiar nos colegas de time também fazem parte do jogo.
+          Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas também sobre evoluir em cada lance.
+          Quer saúde, energia e boas histórias pra contar? Então o basquete pode ser o seu lugar.
         </P>
-      
+
       </div>
       <div class="img-jogador-nba">
         <img src="./assets/img/design-beneficios.png" alt="" class="">
@@ -161,12 +168,111 @@ Em quadra, a gente descobre que crescer não é só sobre fazer pontos, mas tamb
   </section>
 
   <section id="entretenimento" class="section">
-
-
-
+    <div class="text-entretenimento">
+      <h1><i>ENTRETENIMENTO</i></h1>
+      <button onclick="gerar()">Mostrar Filmes</button>
+      <div id="filmes"></div>
+    </div>
   </section>
+
+  <section id="rodape">
+        <div id="container-rodape">
+            <div id="esquerda-rodape">
+                <div id="logo-rodape">
+                🏀                
+              </div>
+                <div id="rodape-links">
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#historia">História</a></li>
+                        <li><a href="#nba">NBA</a></li>
+                        <li><a href="#nbb">NBB</a></li>
+                        <li><a href="#entretenimento">Entretenimento</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="direita-rodape">
+                <div id="contato">
+                    <span>Contato</span>
+                </div>
+                <div id="div-email-rodape">
+                    <div id="conteudo-email">
+                        <img src="./assets/img/githubA.png"> <a href="https://github.com/LukasFah">github/lukasFarias.com</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="txtDireitos">
+            © 2025 Basquete. Feito pelo aluno da Sptech Lukas Farias. 
+        </div>
+    </section>
 
 
 </body>
 
 </html>
+
+<script>
+  const filmesBasquete = [
+    {
+      titulo: "Space Jam", descricao: "Michael Jordan ajuda os Looney Tunes a vencer uma partida intergaláctica.",
+      imagem: "./assets/img/spacejam.jpg"
+    },
+    {
+      titulo: "Coach Carter", descricao: "Um técnico rígido usa o basquete para ensinar disciplina a seus jogadores.",
+      imagem: "./assets/img/CoachCarter.jpg"
+    },
+    {
+      titulo: "Hustle", descricao: "Um olheiro encontra um talento oculto e aposta tudo em sua ascensão.",
+      imagem: "./assets/img/Hustle.jpg"
+    },
+    {
+      titulo: "Glory Road", descricao: "História do primeiro time universitário negro a vencer um campeonato nacional.",
+      imagem: "./assets/img/GloryRoad.jpg"
+    },
+    {
+      titulo: "He Got Game", descricao: "Um pai preso tenta convencer o filho a jogar pela universidade certa.",
+      imagem: "./assets/img/HeGotGame.jpg"
+    },
+    {
+      titulo: "The Way Back", descricao: "Um ex-jogador problemático tem a chance de recomeçar como técnico.",
+      imagem: "./assets/img/TheWayBack.jpg"
+    },
+    {
+      titulo: "Uncle Drew", descricao: "Lendas do basquete disfarçadas de idosos dominam as quadras de rua.",
+      imagem: "./assets/img/UncleDrew.jpg"
+    },
+    {
+      titulo: "Above the Rim", descricao: "Drama de um jovem dividido entre o esporte e a criminalidade.",
+      imagem: "./assets/img/AbovetheRim.jpg"
+    },
+    {
+      titulo: "Rebound", descricao: "História inspiradora de superação e liderança nas quadras.",
+      imagem: "./assets/img/Rebound.jpg"
+    },
+    {
+      titulo: "Blue Chips", descricao: "Corrupção e dilemas morais no basquete universitário americano.",
+      imagem: "./assets/img/BlueChips.jpg"
+    }
+  ];
+
+  function gerar() {
+    filmes.innerHTML = "";
+
+    for (let i = 0; i < 1; i++) {
+      const aleatorio = Number(Math.random() * 9).toFixed()
+      const item = filmesBasquete[aleatorio];
+
+      filmes.innerHTML = `
+        <div class="card-entretenimento">
+          <h3>${item.titulo}</h3>
+          <img src="${item.imagem}" alt="${item.titulo}" class="imagem-filme">
+          <p>${item.descricao}</p>
+        </div>
+      `;
+    }
+  }
+
+
+</script>
