@@ -16,6 +16,10 @@ router.get("/kpis/:fkUsuario", function (req, res) {
    dashboardController.kpis(req, res);
 });
 
+router.get("/desempenho/:fkUsuario", function (req, res) {
+   dashboardController.desempenho(req, res);
+});
+
 
 
 module.exports = router;

@@ -44,8 +44,25 @@ function kpis(fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function desempenho(fkUsuario) {
+
+    var instrucaoSql = `SELECT 
+q.nome AS nomeQuiz,
+ROUND(AVG(r.acertos / (r.acertos + r.erros)) * 100, 2) AS mediaAcertosPorcentagem
+FROM resultado r
+JOIN quiz q ON r.fkQuiz = q.idQuiz
+WHERE r.fkUsuario = ${fkUsuario}
+GROUP BY q.nome
+ORDER BY mediaAcertosPorcentagem DESC
+LIMIT 1;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     historia,
     obterDados,
-    kpis
+    kpis,
+    desempenho
 };

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basquete</title>
-    <link rel="stylesheet" href="./css/quiz_regras.css">
+    <link rel="stylesheet" href="./css/quiz_curiosidades.css">
 </head>
 
 
@@ -13,7 +13,7 @@
     <div class="conteint-centraliza">
         <div id="pontuacaoEJogo">
             <a href="./indexLogado.html"><img src="./assets/img/logo (1).png" alt="Logo" class="logo"></a>
-            <h2 id="historia"><i>REGRAS</i></h2>
+            <h2 id="historia"><i>CURIOSIDADES</i></h2>
             <button class="button" id="btnIniciarQuiz" onclick="iniciarQuiz() ">INICIAR QUIZ</button>
 
             <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
@@ -84,93 +84,93 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Quantos jogadores de cada time estão em quadra durante uma partida oficial de basquete?",
-            alternativaA: "6",
+            pergunta: "Qual foi o primeiro time campeão da NBA?",
+            alternativaA: "Chicago Bulls",
+            alternativaB: "Los Angeles Lakers",
+            alternativaC: "Boston Celtics",
+            alternativaD: "Philadelphia Warriors",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual jogador é conhecido por nunca ter sido eliminado por faltas em sua carreira na NBA?",
+            alternativaA: "Karl Malone",
+            alternativaB: "LeBron James",
+            alternativaC: "Wilt Chamberlain",
+            alternativaD: "Kareem Abdul-Jabbar",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual é o recorde de maior número de assistências em um único jogo da NBA?",
+            alternativaA: "30 assistências",
+            alternativaB: "22 assistências",
+            alternativaC: "25 assistências",
+            alternativaD: "28 assistências",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual jogador ficou famoso por usar a camisa 23 nos Chicago Bulls?",
+            alternativaA: "Scottie Pippen",
+            alternativaB: "Dennis Rodman",
+            alternativaC: "Michael Jordan",
+            alternativaD: "Derrick Rose",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual ex-jogador da NBA é conhecido por ser o mais alto da história da liga?",
+            alternativaA: "Shaquille O'Neal",
+            alternativaB: "Yao Ming",
+            alternativaC: "Manute Bol",
+            alternativaD: "Tacko Fall",
+            alternativaCorreta: "alternativaC"
+        },
+
+        {
+            pergunta: "Qual foi o primeiro país a vencer um Mundial de Basquete FIBA?",
+            alternativaA: "Estados Unidos",
+            alternativaB: "Iugoslávia",
+            alternativaC: "Brasil",
+            alternativaD: "Argentina",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual franquia da NBA tem como mascote o 'Benny the Bull'?",
+            alternativaA: "Miami Heat",
+            alternativaB: "Chicago Bulls",
+            alternativaC: "Detroit Pistons",
+            alternativaD: "New York Knicks",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Quantos jogadores cada time tem em quadra durante uma partida oficial de basquete?",
+            alternativaA: "4",
             alternativaB: "5",
-            alternativaC: "7",
-            alternativaD: "4",
+            alternativaC: "6",
+            alternativaD: "7",
             alternativaCorreta: "alternativaB"
         },
 
         {
-            pergunta: "Qual é a duração oficial de uma partida de basquete profissional da NBA?",
-            alternativaA: "4 tempos de 12 minutos",
-            alternativaB: "2 tempos de 20 minutos",
-            alternativaC: "2 tempos de 30 minutos",
-            alternativaD: "4 tempos de 10 minutos",
-            alternativaCorreta: "alternativaA"
-        },
-
-        {
-            pergunta: "Quantos segundos um time tem para tentar um arremesso após iniciar a posse de bola (regra dos EUA)?",
-            alternativaA: "30 segundos",
-            alternativaB: "24 segundos",
-            alternativaC: "15 segundos",
-            alternativaD: "10 segundos",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "O que é uma violação de 'dois tempos' (ou 'dois passos') no basquete?",
-            alternativaA: "Ficar parado por mais de 3 segundos na área restrita",
-            alternativaB: "Fazer dois passes seguidos para o mesmo jogador",
-            alternativaC: "Dar mais de dois passos sem quicar a bola",
-            alternativaD: "Quicar a bola com as duas mãos ao mesmo tempo",
+            pergunta: "Qual foi o primeiro Dream Team do basquete olímpico composto por jogadores da NBA?",
+            alternativaA: "1988",
+            alternativaB: "1996",
+            alternativaC: "1992",
+            alternativaD: "2000",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Quantos pontos vale um arremesso feito atrás da linha de três pontos?",
-            alternativaA: "1 ponto",
-            alternativaB: "2 pontos",
-            alternativaC: "3 pontos",
-            alternativaD: "4 pontos",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "Qual o tempo máximo que um jogador pode permanecer no garrafão adversário (área restrita) sem sair?",
-            alternativaA: "5 segundos",
-            alternativaB: "10 segundos",
-            alternativaC: "3 segundos",
-            alternativaD: "1 segundo",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "O que acontece quando um jogador comete 5 faltas pessoais em uma partida da FIBA?",
-            alternativaA: "Ele recebe cartão vermelho",
-            alternativaB: "É expulso da quadra",
-            alternativaC: "É substituído e não pode mais voltar",
-            alternativaD: "Perde um lance livre",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "Como se chama a jogada em que o jogador salta e bloqueia um arremesso do adversário?",
-            alternativaA: "Toque",
-            alternativaB: "Rebote",
-            alternativaC: "Bloqueio",
-            alternativaD: "Interceptação",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "O que é 'driblar' no basquete?",
-            alternativaA: "Chutar a bola",
-            alternativaB: "Passar a bola para o companheiro",
-            alternativaC: "Quicar a bola no chão repetidamente enquanto se movimenta",
-            alternativaD: "Tocar a bola com os pés",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "Qual é a penalidade para uma falta cometida durante um arremesso de três pontos, se a bola não entra?",
-            alternativaA: "Lance livre único",
-            alternativaB: "2 lances livres",
-            alternativaC: "3 lances livres",
-            alternativaD: "Perda da posse de bola",
-            alternativaCorreta: "alternativaC"
+            pergunta: "Quem é o técnico mais vitorioso da história da NBA em número de vitórias na temporada regular?",
+            alternativaA: "Gregg Popovich",
+            alternativaB: "Phil Jackson",
+            alternativaC: "Pat Riley",
+            alternativaD: "Don Nelson",
+            alternativaCorreta: "alternativaD"
         }
 
     ]
@@ -196,7 +196,7 @@
         document.getElementById('btnIniciarQuiz').style.display = "none"
         document.getElementById('historia').style.display = "none"
 
-        sessionStorage.setItem("ID_QUIZ", 2);
+        sessionStorage.setItem("ID_QUIZ", 3);
 
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 

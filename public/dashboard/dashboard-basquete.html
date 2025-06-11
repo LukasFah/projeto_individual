@@ -41,7 +41,7 @@
                 <div id="KPIs">
                     <div class="kpi">
                         <div class="titulo-kpi">
-                            <h3>Média de acertos</h3>
+                            <h3>Média total de acertos</h3>
 
                         </div>
                         <div class="valor-kpi">
@@ -53,7 +53,7 @@
                             <h3>Categoria com maior desempenho</h3>
                         </div>
                         <div class="valor-kpi">
-                            <h1 id="desempenho"></h1>
+                            <h1 id="kpidesempenho"></h1>
                         </div>
                     </div>
                     <div class="kpi">
@@ -232,7 +232,7 @@
                     backgroundColor: [
                         '#FBC64F',
                         '#ED2F2F',
-                        '#4CAF50',
+                        '#16213d',
                         '#2196F3',
                         '#9C27B0',
                         '#FF9800'
@@ -262,7 +262,6 @@
                     resultado.reverse();
 
                     // media.innerHTML = ` ${resultado[0].totalAcertos}`
-                    desempenho.innerHTML = ` ${resultado[0].totalErros}`
                     quiz.innerHTML = ` ${resultado[0].totalQuizzes}`
                 });
             } else {
@@ -275,7 +274,26 @@
 
     }
 
+    function desempenho() {
+        fetch(`/dashboard/desempenho/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resultado) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resultado)}`);
+                    resultado.reverse();
+
+                    kpidesempenho.innerHTML = ` ${resultado[0].nomeQuiz}`
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
 
-    window.onload = () => { obterDados(), kpis() };
+
+    window.onload = () => { obterDados(), kpis(), desempenho() };
 </script>
